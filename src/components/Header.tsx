@@ -4,6 +4,7 @@ import {Button} from "react-bootstrap";
 import styles from './Header.module.scss'
 import {Link, useNavigate} from "react-router-dom";
 import {useAutorisation} from "../hooks/authorisation";
+import logo from '../assets/logo192.png'
 
 function Header() {
     const {isAdmin, isMember, logout, userName} = useAutorisation()
@@ -17,7 +18,7 @@ function Header() {
                     <Navbar.Brand className={styles.brand}>
                         <img
                             alt="Logo Reservation de salle"
-                            src="/src/assets/logo192.png"
+                            src={logo}
                             width="60"
                             height="60"
                             className="d-inline-block align-top"/>
