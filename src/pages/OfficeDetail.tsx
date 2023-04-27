@@ -1,17 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
-import ActiviteTbl from "../components/ActiviteTbl";
 import Loading from "../components/Loading";
 import {useNavigate, useParams} from "react-router-dom";
 import * as yup from "yup";
 import {FormikProvider, useFormik} from "formik";
 import {IActivite, ISalle} from '../models';
 import { useSalles } from '../hooks/salles';
-import {types} from "sass";
-import List = types.List;
 import {useAutorisation} from "../hooks/authorisation";
 import CustomDropDown, {IDropDownItem} from "../components/CustomDropDown";
-import activiteList from "./ActiviteList";
 import {useActivites} from "../hooks/activites";
 
 const OfficeNew = () => {
