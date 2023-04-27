@@ -1,0 +1,45 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import './styles/variables';
+#root {
+  margin: 0 auto;
+  text-align: center;
+  background-color: $color-1;
+}
+
+html{
+  min-height: 100%;
+}
+
+body {
+  @include font-default(1rem);
+}
+
+h1 {
+  @include font-default(1.5rem);
+}
+
+a:not(.logo) {
+  text-decoration: none;
+  color: $color-text-link;
+  &:hover{
+    cursor: pointer;
+    color: $color-text-link;
+    font-weight: 600;
+    transform: scale(1.1);
+  }
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+.gap-2 {
+  gap: 2rem;
+}
+.min-w-120 {
+  min-width: 120px;
+}
+
+.h-fit-content{
+  height: fit-content;
+}

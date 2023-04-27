@@ -1,0 +1,25 @@
+@import "../styles/include-basic";
+
+.navbar {
+  .logo {
+    text-decoration: none;
+    &:hover{
+      color: $color-text-link;
+    }
+  }
+  background-color: $color-1;
+  .buttons {
+    //display: none;
+    display: flex;
+    gap: .5rem;
+  }
+  .brand {
+    @include font-default-bold(1.5rem);
+    line-height: 60px;
+  }
+  .name{
+    margin: 0;
+    font-weight: 600;
+    color: $color-text-dark;
+  }
+}

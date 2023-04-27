@@ -1,0 +1,9 @@
+@import "./styles/include-basic";
+
+.container {
+  margin-left: $side-bar-width;
+  margin-top: $header-height;
+  margin-bottom: $footer-height;
+  width: auto;
+  background-color: white;
+}

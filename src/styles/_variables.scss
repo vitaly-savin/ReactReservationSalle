@@ -1,0 +1,34 @@
+$color-1: #00D1E2;
+$color-text-dark: #000;
+$color-text-link: #000;
+$side-bar-width: 12.5rem;
+$header-height: 4.75rem;
+$footer-height: 2.85rem;
+
+// Create your own map
+$custom-colors: (
+  "custom-red": #900
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$table-variants: map-merge($table-variants, $custom-colors);
+
+@mixin font-default($size, $color: $color-text-dark, $weight: normal) {
+  color: $color;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $size;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: $weight;
+  letter-spacing: normal;
+  line-height: 1.85;
+}
+
+@mixin font-default-bold($size, $color: $color-text-dark) {
+  @include font-default($size, $color, 600);
+}
+
+@mixin font-link {
+  @include font-default(0.8125rem, $color-text-link, 600);
+}

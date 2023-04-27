@@ -1,0 +1,14 @@
+@import "../styles/include-basic";
+
+.container {
+  background-color: $color-1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 76px;
+  //height: fit-content;
+  width: $side-bar-width;
+  .wrapper {
+    gap: .5rem;
+  }
+}
