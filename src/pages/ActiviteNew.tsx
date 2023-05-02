@@ -7,19 +7,22 @@ import {useNavigate} from "react-router-dom";
 import * as yup from "yup";
 import {useFormik} from "formik";
 import { IActivite } from '../models';
+import {useAutorisation} from "../hooks/authorisation";
+
 
 const ActiviteNew = () => {
     const {loading, error, createActivity} = useActivites();
     const navigate = useNavigate();
+    const {userEmail} = useAutorisation();
     const initialValues = {
         nomActivite: "",
         description: "",
         estActif: true,
-        creerParAdministrateurCourriel: 'dominic.primard@gmail.com'
+        creerParAdministrateurCourriel: userEmail()
     }
     const validationSchema = yup.object().shape({
-        nomActivite: yup.string().required("Entrez le nom de l'activité"),
-        description: yup.string().required("Entrez la description"),
+        nomActivite: yup.string().max(20).required("Entrez le nom de l'activité"),
+        description: yup.string().max(100).required("Entrez la description"),
         estActif: yup.bool().required("Choisissez l'etat"),
         creerParAdministrateurCourriel: yup.string()
     });

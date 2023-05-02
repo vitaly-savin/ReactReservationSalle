@@ -282,7 +282,7 @@ const ReservationCreer = () => {
             {(loading || salleLoading) && <Loading />}
             {error && navigate("/error", {state: {error: error}})}
             {salleError && navigate("/error", {state: {error: salleError}})}
-            <pre style={{ margin: '0 auto' }}>{JSON.stringify({ values, errors, isValid, touched, dirty }, null, 2)}</pre>
+            {/*<pre style={{ margin: '0 auto' }}>{JSON.stringify({ values, errors, isValid, touched, dirty }, null, 2)}</pre>*/}
         </>
     );
 }

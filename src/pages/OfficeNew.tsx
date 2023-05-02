@@ -8,10 +8,12 @@ import {IActivite, ISalle} from '../models';
 import { useSalles } from '../hooks/salles';
 import CustomDropDown, {IDropDownItem} from "../components/CustomDropDown";
 import {useActivites} from "../hooks/activites";
+import {useAutorisation} from "../hooks/authorisation";
 
 const OfficeNew = () => {
     const {loading, error, createSalle} = useSalles();
     const {activiteList: al} = useActivites();
+    const {userEmail} = useAutorisation();
     const [activiteList, setActiviteList] = useState<IActivite[]>(al ?? []);
     useEffect(() => {
         setActiviteList(al ?? [])
@@ -23,12 +25,12 @@ const OfficeNew = () => {
         description: "",
         nomActivites: [],
         estActif: true,
-        creerParAdministrateurCourriel: "dominic.primard@gmail.com",
+        creerParAdministrateurCourriel: userEmail(),
     }
     const validationSchema = yup.object().shape({
         noSalle: yup.number().moreThan(0).required("Entrez le numéro de la salle"),
         capacite: yup.number().moreThan(0).required("Entrez la capacité de la salle"),
-        description: yup.string().required("Entrez la description"),
+        description: yup.string().max(255).required("Entrez la description"),
         nomActivites: yup.array(),
         estActif: yup.bool().required("Choisissez l'etat"),
         creerParAdministrateurCourriel: yup.string()
