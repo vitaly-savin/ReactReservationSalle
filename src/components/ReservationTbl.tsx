@@ -77,7 +77,7 @@ export function ReservationTbl(props:IReservationTblProps){
                                     variant="dark">Modifier</Button>}
                                 <Button
                                     className={'min-w-120 text-nowrap'}
-                                    disabled={reservation.idEtatReservation === 4 || userEmail()!=reservation.creerParMembreCourriel}
+                                    disabled={isMember() && ( reservation.idEtatReservation === 4 || userEmail()!=reservation.creerParMembreCourriel )}
                                     onClick={() => props.onAction?.(reservation.noReservation!)}
                                     variant="dark">{etatButtonTitle}</Button>
                                 {(isAdmin()) && <Button
