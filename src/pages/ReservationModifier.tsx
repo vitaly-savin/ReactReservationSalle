@@ -43,7 +43,8 @@ const ReservationModifier = () => {
     useEffect(() => {
         const timeArray =[];
         for (let i = 8; i <= 21; i++) {
-            timeArray.push({date: i + ':00', disabled: false});
+            const zero = i < 10 ? "0" : "";
+            timeArray.push({date: zero + i + ':00', disabled: false});
         }
         setMaxDuration(15);
         setAvailableTimes(timeArray);

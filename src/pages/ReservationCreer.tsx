@@ -43,7 +43,8 @@ const ReservationCreer = () => {
     useEffect(() => {
         const timeArray =[];
         for (let i = 8; i <= 21; i++) {
-            timeArray.push({date: i + ':00', disabled: false});
+            const zero = i < 10 ? "0" : "";
+            timeArray.push({date: zero + i + ':00', disabled: false});
         }
         setAvailableTimes(timeArray);
     },[]);
@@ -79,8 +80,8 @@ const ReservationCreer = () => {
     });
 
     const onSubmit = (values: any) =>{
-        const dateHeureDebut = moment.utc(values.date+"T"+selectedTime).toISOString();
-        const dateHeureFin = moment.utc(values.date+"T"+selectedTime).add(values.duration, 'hours').toISOString();
+        const dateHeureDebut = moment.utc(values.date+"T"+values.reservationTime).toISOString();
+        const dateHeureFin = moment.utc(values.date+"T"+values.reservationTime).add(values.duration, 'hours').toISOString();
         const reservationObj: IReservation = {
             dateHeureDebut: dateHeureDebut,
             dateHeureFin: dateHeureFin,
@@ -281,7 +282,7 @@ const ReservationCreer = () => {
             {(loading || salleLoading) && <Loading />}
             {error && navigate("/error", {state: {error: error}})}
             {salleError && navigate("/error", {state: {error: salleError}})}
-            {/*<pre style={{ margin: '0 auto' }}>{JSON.stringify({ values, errors, isValid, touched, dirty }, null, 2)}</pre>*/}
+            <pre style={{ margin: '0 auto' }}>{JSON.stringify({ values, errors, isValid, touched, dirty }, null, 2)}</pre>
         </>
     );
 }
